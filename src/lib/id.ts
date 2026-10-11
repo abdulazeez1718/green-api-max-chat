@@ -1,0 +1,8 @@
+/** Уникальный локальный идентификатор (crypto.randomUUID доступен только в secure context). */
+export function createLocalId(): string {
+  const uuid =
+    typeof crypto !== 'undefined' && typeof crypto.randomUUID === 'function'
+      ? crypto.randomUUID()
+      : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`
+  return `local:${uuid}`
+}

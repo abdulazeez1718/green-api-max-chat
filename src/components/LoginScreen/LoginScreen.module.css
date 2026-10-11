@@ -1,0 +1,172 @@
+.screen {
+  position: relative;
+  display: grid;
+  min-height: 100%;
+  padding: 24px 16px;
+  place-items: center;
+  overflow-y: auto;
+  background: var(--chat-bg);
+  isolation: isolate;
+}
+
+.screen::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: var(--chat-pattern);
+  mask: url('../../assets/pattern.svg') repeat;
+  mask-size: 240px;
+}
+
+.card {
+  width: 100%;
+  max-width: 400px;
+  padding: 32px 28px 24px;
+  border-radius: 24px;
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-modal);
+  text-align: center;
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 16px;
+  filter: drop-shadow(0 6px 14px #0057d133);
+}
+
+.title {
+  margin: 0;
+  font-size: 24px;
+  line-height: 28px;
+  font-weight: 600;
+}
+
+.subtitle {
+  margin: 8px 0 24px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}
+
+.subtitle a,
+.footnote a {
+  color: var(--text-themed);
+  text-decoration: none;
+}
+
+.subtitle a:hover,
+.footnote a:hover {
+  text-decoration: underline;
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+  text-align: left;
+}
+
+.field {
+  display: grid;
+  gap: 6px;
+}
+
+.field label {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.field input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  background: var(--field);
+  outline: none;
+  transition:
+    border-color 0.15s ease,
+    background-color 0.15s ease;
+}
+
+.field input:focus {
+  border-color: var(--accent);
+  background: var(--field-focus);
+}
+
+/* Фокус показывает цветная рамка поля — без второго контура. */
+.field input:focus-visible {
+  outline: none;
+}
+
+.field input[aria-invalid='true'] {
+  border-color: var(--text-negative);
+}
+
+.field input::placeholder {
+  color: var(--text-tertiary);
+}
+
+.withAction {
+  position: relative;
+}
+
+.withAction input {
+  padding-right: 48px;
+}
+
+.fieldAction {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.hint,
+.fieldError {
+  margin: 0;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.hint {
+  color: var(--text-tertiary);
+}
+
+.fieldError {
+  color: var(--text-negative);
+}
+
+.advanced summary {
+  width: fit-content;
+  color: var(--text-themed);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.advanced[open] summary {
+  margin-bottom: 12px;
+}
+
+.formError {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+  margin: 0;
+  padding: 12px;
+  border-radius: var(--radius-m);
+  background: var(--negative-fade);
+  color: var(--text-negative);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.formError svg {
+  flex: none;
+}
+
+.footnote {
+  margin: 20px 0 0;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  line-height: 18px;
+}

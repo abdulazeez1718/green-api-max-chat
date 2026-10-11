@@ -1,0 +1,51 @@
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, var(--sidebar-width)) minmax(0, 1fr);
+  height: 100vh;
+  height: 100dvh;
+  background: var(--bg-primary);
+}
+
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .layout[data-chat-open='true'] > :first-child,
+  .layout[data-chat-open='false'] > :last-child {
+    display: none;
+  }
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: grid;
+  padding: 16px;
+  place-items: center;
+  background: var(--bg-overlay);
+  backdrop-filter: blur(4px);
+}
+
+.overlayCard {
+  width: min(400px, 100%);
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  background: var(--bg-primary);
+  box-shadow: var(--shadow-modal);
+  text-align: center;
+}
+
+.overlayCard h2 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.overlayCard p {
+  margin: 0 0 20px;
+  color: var(--text-secondary);
+  font-size: 15px;
+}

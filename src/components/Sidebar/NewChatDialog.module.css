@@ -1,0 +1,94 @@
+.dialog {
+  width: min(420px, calc(100vw - 32px));
+  max-width: none;
+  padding: 0;
+  border: 0;
+  border-radius: 24px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-modal);
+}
+
+.dialog::backdrop {
+  background: var(--bg-overlay);
+}
+
+.card {
+  display: grid;
+  gap: 8px;
+  padding: 16px 24px 24px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 -8px 8px 0;
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+.label {
+  color: var(--text-secondary);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-m);
+  background: var(--field);
+  font-size: 17px;
+  letter-spacing: 0.3px;
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--accent);
+  background: var(--field-focus);
+}
+
+.input:focus-visible {
+  outline: none;
+}
+
+.input[aria-invalid='true'] {
+  border-color: var(--text-negative);
+}
+
+.hint,
+.error {
+  margin: 0;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.hint {
+  color: var(--text-tertiary);
+}
+
+.error {
+  display: flex;
+  gap: 6px;
+  align-items: flex-start;
+  color: var(--text-negative);
+}
+
+.error svg {
+  flex: none;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}

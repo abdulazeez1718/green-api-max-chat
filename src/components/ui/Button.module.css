@@ -1,0 +1,103 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: var(--radius-m);
+  font-weight: 500;
+  white-space: nowrap;
+  transition:
+    background-color 0.15s ease,
+    opacity 0.15s ease;
+}
+
+.medium {
+  min-height: 48px;
+  padding: 0 20px;
+  font-size: 16px;
+}
+
+.small {
+  min-height: 32px;
+  padding: 0 12px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.block {
+  width: 100%;
+}
+
+.primary {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.secondary {
+  background: var(--button-secondary);
+  color: var(--text-primary);
+}
+
+.secondary:hover:not(:disabled) {
+  background: var(--button-secondary-hover);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--text-themed);
+}
+
+.ghost:hover:not(:disabled) {
+  background: var(--bg-selected);
+}
+
+.button:disabled {
+  opacity: 0.5;
+}
+
+.button[aria-busy='true'] {
+  opacity: 0.85;
+}
+
+.iconButton {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease;
+}
+
+.icon-ghost {
+  background: transparent;
+  color: var(--icon-secondary);
+}
+
+.icon-ghost:hover:not(:disabled) {
+  background: var(--bg-hover);
+  color: var(--icon-primary);
+}
+
+.icon-accent {
+  background: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.icon-accent:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.icon-accent:disabled {
+  background: var(--button-secondary);
+  color: var(--icon-tertiary);
+}

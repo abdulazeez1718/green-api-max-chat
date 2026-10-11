@@ -1,0 +1,197 @@
+/*
+ * Дизайн-токены по мотивам web.max.ru (тема «space»): цвета, отступы, скругления и шрифты
+ * взяты из открытых CSS-переменных веб-версии MAX. Светлая/тёмная тема — по настройке системы.
+ * Цвета мелкого текста и акцента чуть затемнены (#016fe7 — тоже из палитры MAX),
+ * чтобы контраст соответствовал WCAG AA (≥ 4.5:1).
+ */
+:root {
+  color-scheme: light dark;
+  --font:
+    -apple-system, BlinkMacSystemFont, Roboto, system-ui, 'Segoe UI', Helvetica, Arial, sans-serif;
+
+  --bg-surface: #edeef2;
+  --bg-primary: #fff;
+  --bg-secondary: #f5f7fa;
+  --bg-hover: #f6f6f6;
+  --bg-selected: #007aff14;
+  --bg-overlay: #0c0d0e52;
+
+  --text-primary: #060708;
+  --text-secondary: #060708ad;
+  --text-tertiary: #0607089e;
+  --text-themed: #016fe7;
+  --text-negative: #ff303c;
+  --text-positive: #1abe43;
+  --text-attention: #c79a00;
+
+  --icon-primary: #060708d6;
+  --icon-secondary: #060708a3;
+  --icon-tertiary: #0607087a;
+
+  --accent: #016fe7;
+  --accent-hover: #015fc6;
+  --accent-contrast: #fff;
+  --button-secondary: #e9ebf1;
+  --button-secondary-hover: #dfe2ea;
+  --negative-fade: #ff303c1f;
+  --attention-fade: #ffcc0029;
+
+  --divider: #0c0d0e0f;
+  --divider-strong: #0c0d0e29;
+  --counter: #016fe7;
+  --counter-muted: #0607081f;
+  --field: #f5f7fa;
+  --field-focus: #fff;
+  --focus-ring: #007aff66;
+
+  /* Фон переписки и пузыри сообщений */
+  --chat-bg: linear-gradient(180deg, #80bcff 0%, #99d5d7 100%);
+  --chat-pattern: #007aff4d;
+  --bubble-in-bg: #fff;
+  --bubble-in-text: #060708;
+  --bubble-in-meta: #0607089e;
+  --bubble-in-link: #06739f;
+  --bubble-out-bg: #e9fdff;
+  --bubble-out-text: #011c29;
+  --bubble-out-meta: #06739f;
+  --bubble-out-link: #06739f;
+  --bubble-out-status: #0f8ec2;
+  --system-chip-bg: #ffffffa3;
+  --system-chip-text: #060708ad;
+  --composer-bg: #fff;
+
+  --shadow-float: 0 4px 16px #00000014, 0 0 2px #00000014;
+  --shadow-modal: 0 8px 32px #00000029;
+
+  --radius-s: 8px;
+  --radius-m: 12px;
+  --radius-l: 16px;
+  --radius-xl: 20px;
+  --radius-bubble: 16px;
+  --radius-bubble-stack: 6px;
+
+  --sidebar-width: 393px;
+  --message-zone-max: 791px;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-surface: #0f0f12;
+    --bg-primary: #17181c;
+    --bg-secondary: #25262d;
+    --bg-hover: #25262d;
+    --bg-selected: #2c2d37;
+    --bg-overlay: #0d0d0da3;
+
+    --text-primary: #fff;
+    --text-secondary: #fffc;
+    --text-tertiary: #ffffffa3;
+    --text-themed: #409cff;
+    --text-negative: #ff5c66;
+    --text-positive: #2bc644;
+    --text-attention: #ffd60a;
+
+    --icon-primary: #fff;
+    --icon-secondary: #ffffffad;
+    --icon-tertiary: #ffffff85;
+
+    --button-secondary: #2f3039;
+    --button-secondary-hover: #3a3b46;
+    --negative-fade: #ce425733;
+    --attention-fade: #ffd60a1f;
+
+    --divider: #ffffff0f;
+    --divider-strong: #ffffff1f;
+    --counter-muted: #ffffff47;
+    --field: #25262d;
+    --field-focus: #25262d;
+
+    --chat-bg: #141414;
+    --chat-pattern: #505bc74d;
+    --bubble-in-bg: linear-gradient(239deg, #3b3f5e 0%, #373a4e 50%, #32343d 100%);
+    --bubble-in-text: #fff;
+    --bubble-in-meta: #ffffffa3;
+    --bubble-in-link: #409cff;
+    --bubble-out-bg: linear-gradient(239deg, #8849b4 0%, #735acd 50%, #5d6ae5 100%);
+    --bubble-out-text: #fff;
+    --bubble-out-meta: #ffffffe0;
+    --bubble-out-link: #fff;
+    --bubble-out-status: #ffffffe0;
+    --system-chip-bg: #373a4ea3;
+    --system-chip-text: #fffc;
+    --composer-bg: #1e1f24;
+
+    --shadow-float: 0 4px 16px #0000004d, 0 0 2px #0000004d;
+    --shadow-modal: 0 8px 32px #00000080;
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font: 400 16px/20px var(--font);
+  letter-spacing: 0.15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: default;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+a {
+  color: var(--text-themed);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

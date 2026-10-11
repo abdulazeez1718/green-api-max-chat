@@ -1,0 +1,11 @@
+.avatar {
+  display: inline-grid;
+  flex: none;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1;
+  user-select: none;
+  text-shadow: 0 1px 2px #0000001f;
+}

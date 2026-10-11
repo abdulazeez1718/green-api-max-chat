@@ -1,0 +1,259 @@
+.sidebar {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  border-right: 1px solid var(--divider);
+  background: var(--bg-primary);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 12px 12px 16px;
+}
+
+.headerText {
+  flex: 1;
+  min-width: 0;
+}
+
+.title {
+  margin: 0;
+  font-size: 20px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+/* ---------- статус подключения ---------- */
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 2px 0 0;
+  overflow: hidden;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  line-height: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.statusDot {
+  flex: none;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--text-tertiary);
+}
+
+.status[data-tone='ok'] .statusDot {
+  background: var(--text-positive);
+}
+
+.status[data-tone='pending'] .statusDot {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+
+.status[data-tone='error'] {
+  color: var(--text-negative);
+}
+
+.status[data-tone='error'] .statusDot {
+  background: var(--text-negative);
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.3;
+  }
+}
+
+/* ---------- предупреждения ---------- */
+
+.banners {
+  display: grid;
+  gap: 8px;
+  padding: 0 12px;
+}
+
+.banners:not(:empty) {
+  padding-bottom: 8px;
+}
+
+.banner {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px;
+  border-radius: var(--radius-l);
+  background: var(--attention-fade);
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.banner[data-tone='error'] {
+  background: var(--negative-fade);
+}
+
+.banner[data-tone='info'] {
+  background: var(--bg-selected);
+}
+
+.bannerIcon {
+  flex: none;
+  margin-top: -1px;
+  color: var(--text-attention);
+}
+
+.banner[data-tone='error'] .bannerIcon {
+  color: var(--text-negative);
+}
+
+.banner[data-tone='info'] .bannerIcon {
+  color: var(--text-themed);
+}
+
+.bannerBody {
+  display: grid;
+  flex: 1;
+  gap: 10px;
+  justify-items: start;
+}
+
+.bannerBody p {
+  margin: 0;
+}
+
+.bannerError {
+  color: var(--text-negative);
+}
+
+.bannerClose {
+  width: 28px;
+  height: 28px;
+  margin: -4px -4px 0 0;
+}
+
+/* ---------- список чатов ---------- */
+
+.chatList {
+  flex: 1;
+  margin: 0;
+  padding: 0 8px 8px;
+  overflow-y: auto;
+  list-style: none;
+}
+
+.chatItem {
+  display: grid;
+  grid-template-areas:
+    'avatar title meta'
+    'avatar preview badge';
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  column-gap: 12px;
+  row-gap: 2px;
+  align-items: center;
+  width: 100%;
+  padding: 9px 8px;
+  border: 0;
+  border-radius: var(--radius-l);
+  background: transparent;
+  text-align: left;
+}
+
+.chatItem:hover {
+  background: var(--bg-hover);
+}
+
+.chatItem[aria-current='true'] {
+  background: var(--bg-selected);
+}
+
+.chatItem > :first-child {
+  grid-area: avatar;
+}
+
+.chatTitle {
+  grid-area: title;
+  overflow: hidden;
+  font-weight: 500;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.chatMeta {
+  display: flex;
+  grid-area: meta;
+  align-items: center;
+  gap: 2px;
+  color: var(--text-tertiary);
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.chatStatus {
+  display: inline-flex;
+  color: var(--text-themed);
+}
+
+.chatStatus[data-status='pending'],
+.chatStatus[data-status='sent'] {
+  color: var(--text-tertiary);
+}
+
+.chatStatus[data-status='failed'] {
+  color: var(--text-negative);
+}
+
+.chatPreview {
+  grid-area: preview;
+  overflow: hidden;
+  color: var(--text-secondary);
+  font-size: 15px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.unread {
+  grid-area: badge;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  border-radius: 10px;
+  background: var(--counter);
+  color: #fff;
+  font-size: 12px;
+  line-height: 20px;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ---------- пустой список ---------- */
+
+.emptyList {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 24px;
+  text-align: center;
+}
+
+.emptyList p {
+  margin: 0;
+}
+
+.emptyLogo {
+  margin-bottom: 10px;
+}
+
+.emptyHint {
+  margin-bottom: 12px !important;
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
